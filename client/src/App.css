@@ -1,0 +1,122 @@
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0; /* <-- Remove padding */
+  text-align: center;
+}
+
+/* Remove unnecessary logo styles (optional if unused) */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical center */
+  align-items: center; /* Horizontal center */
+  min-height: 100vh;
+  padding: 0; /* Remove padding-top */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.title-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.mirrorverse-title {
+  font-size: 4.5rem; /* bigger */
+  font-weight: bold;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+               0 0 20px rgba(255, 255, 255, 0.5),
+               2px 4px 6px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem; /* spacing below title */
+}
+
+/* Dust burst effect */
+.dust {
+  position: absolute;
+  top: 50%; /* center burst properly */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(rgba(255, 255, 255, 0.4), transparent);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dust.active {
+  animation: dust-burst 0.8s ease-out forwards;
+}
+
+@keyframes dust-burst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.8;
+    filter: blur(2px);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.5;
+    filter: blur(4px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
+    filter: blur(6px);
+  }
+}
+
+.mirrorverse-subtitle {
+  font-size: 1.8rem; /* bigger */
+  font-weight: 400;
+  color: #ccc;
+  margin-top: 10px; /* little less gap */
+  margin-bottom: 2.5rem; /* extra bottom margin before textarea */
+  z-index: 2;
+}
