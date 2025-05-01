@@ -211,6 +211,3 @@ app.use((req, res, next) => {
 
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(clientDistPath, "index.html"));
-// });
