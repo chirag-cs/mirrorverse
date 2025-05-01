@@ -8,8 +8,7 @@ import { fileURLToPath } from "url";
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
-
+const PORT = process.env.PORT || 5000; 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -24,9 +23,7 @@ const GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 const clientDistPath = path.join(__dirname, "client-dist");
 app.use(express.static(clientDistPath));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(clientDistPath, "index.html"));
-});
+
 
 
 app.post('/generate-image', async (req, res) => {
@@ -208,6 +205,9 @@ Persona:
   }
 });
 
+app.use((req, res, next) => {
+  res.sendFile(path.join(clientDistPath, "index.html"));
+});
 
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
