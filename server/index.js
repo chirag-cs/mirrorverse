@@ -28,9 +28,9 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(clientDistPath, "index.html"));
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(clientDistPath, "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(clientDistPath, "index.html"));
+// });
 
 app.post('/generate-image', async (req, res) => {
   const { prompt } = req.body;
