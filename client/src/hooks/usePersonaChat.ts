@@ -1,6 +1,7 @@
 // This hook manages the chat state and interactions with the backend for the persona chat feature.
 import { useState } from "react";
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/chat";
 
 interface ChatMessage {
     sender: "user" | "persona";
@@ -24,7 +25,7 @@ export const usePersonaChat = (personaDescription: string) => {
         setMessages(updatedMessages);
 
         try {
-            const res = await axios.post("http://localhost:5000/chat", {
+            const res = await axios.post(`${API_URL}chat`, {
                 personaDescription,
                 chatHistory: updatedMessages, // 🧠 Pass full message history
             });
