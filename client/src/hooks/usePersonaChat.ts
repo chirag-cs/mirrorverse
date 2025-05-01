@@ -1,7 +1,7 @@
 // This hook manages the chat state and interactions with the backend for the persona chat feature.
 import { useState } from "react";
 import axios from "axios";
-const API_URL = "https://mirrorverse.onrender.com/";
+// const API_URL = "https://mirrorverse.onrender.com/";
 
 interface ChatMessage {
     sender: "user" | "persona";
@@ -25,7 +25,7 @@ export const usePersonaChat = (personaDescription: string) => {
         setMessages(updatedMessages);
 
         try {
-            const res = await axios.post(`${API_URL || "/"}chat`, {
+            const res = await axios.post("http://localhost:10000/chat", {
                 personaDescription,
                 chatHistory: updatedMessages, // 🧠 Pass full message history
             });
