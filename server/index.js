@@ -2,11 +2,16 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import axios from "axios";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
 const app = express();
 const PORT = 5000;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(cors());
 app.use(express.json());
@@ -14,6 +19,18 @@ app.use(express.json());
 const STARRY_API_KEY = process.env.VITE_STARRYAI_API_KEY;
 const VITE_GROQ_API_KEY = process.env.VITE_GROQ_API_KEY;
 const GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
+
+
+const clientDistPath = path.join(__dirname, "client-dist");
+app.use(express.static(clientDistPath));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(clientDistPath, "index.html"));
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(clientDistPath, "index.html"));
+});
 
 app.post('/generate-image', async (req, res) => {
   const { prompt } = req.body;
