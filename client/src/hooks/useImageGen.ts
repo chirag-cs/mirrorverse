@@ -4,7 +4,7 @@ const API_URL = "https://mirrorverse.onrender.com/";
 
 export const generateImage = async (prompt: string): Promise<string> => {
   try {
-    const response = await axios.post(`${API_URL}/api/generate-image`, {
+    const response = await axios.post(`${API_URL}generate-image`, {
       prompt,
     });
 
