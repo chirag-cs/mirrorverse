@@ -1,7 +1,7 @@
 // This hook manages the chat state and interactions with the backend for the persona chat feature.
 import { useState } from "react";
 import axios from "axios";
-const API_URL = "https://mirrorverse.onrender.com/";
+const API_URL = import.meta.env.VITE_API_BASE_URL || "https://localhost:5000/";
 
 interface ChatMessage {
     sender: "user" | "persona";

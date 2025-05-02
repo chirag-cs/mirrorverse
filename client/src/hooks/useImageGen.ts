@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://mirrorverse.onrender.com/";
+const API_URL = import.meta.env.VITE_API_BASE_URL || "https://localhost:5000/";
 
 
 export const generateImage = async (prompt: string): Promise<string> => {
